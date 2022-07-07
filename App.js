@@ -47,31 +47,29 @@ const rl = readline.createInterface({
 
 // pertanyaan()
 
-const questionName = async function () {
+function questionName() {
     return new Promise(resolve => {
         rl.question(`what's your name? `, (e) => {
             if (!validator.isLength(e, { 'min': 1, 'max': 6 })) {
                 questionName();
             }
-            questionEmail()
             resolve(e)
         })
     })
 }
 
-const questionEmail = async () => {
+function questionEmail() {
     return new Promise(resolve => {
         rl.question(`what's your email? `, (e) => {
             if (!validator.isEmail(e)) {
                 questionEmail()
             }
-            questionPhone()
             resolve(e)
         })
     })
 }
 
-const questionPhone = async function () {
+function questionPhone() {
     return new Promise(resolve => {
         rl.question(`type your phone number... `, (e) => {
             if (!validator.isMobilePhone(e, 'id-ID')) {
@@ -87,8 +85,17 @@ async function allQuestion() {
     const name = await questionName()
     const email = await questionEmail()
     const phone = await questionPhone()
+    const val = [
+        `Name : ${name}`,
+        `E-mail : ${email}`,
+        `Phone : ${phone}`
+    ]
 
-    console.log(`Name : ${name} || Email : ${email} || Phone ${phone}`)
+    val.forEach(e => {
+        console.log(e);
+    });
+
+    // console.log(`Name : ${name} || Email : ${email} || Phone ${phone}`)
 }
 
 allQuestion()
