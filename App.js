@@ -3,7 +3,6 @@
 const validator = require('validator')
 
 const readline = require('readline')
-const { resolve } = require('path')
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -75,27 +74,29 @@ function questionPhone() {
             if (!validator.isMobilePhone(e, 'id-ID')) {
                 questionPhone()
             }
-            rl.close()
             resolve(e)
         })
     })
 }
 
 async function allQuestion() {
+    // QUESTS
     const name = await questionName()
     const email = await questionEmail()
     const phone = await questionPhone()
+    rl.close
+
+    // VALUES
     const val = [
         `Name : ${name}`,
         `E-mail : ${email}`,
         `Phone : ${phone}`
     ]
 
+    // RETURN
     val.forEach(e => {
         console.log(e);
     });
-
-    // console.log(`Name : ${name} || Email : ${email} || Phone ${phone}`)
 }
 
 allQuestion()
