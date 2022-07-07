@@ -84,7 +84,7 @@ async function allQuestion() {
     const name = await questionName()
     const email = await questionEmail()
     const phone = await questionPhone()
-    rl.close
+    rl.close()
 
     // VALUES
     const val = [
