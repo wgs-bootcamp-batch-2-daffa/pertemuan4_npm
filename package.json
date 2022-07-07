@@ -5,12 +5,17 @@
   "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node App"
+    "start": "node App",
+    "folder": "ls"
   },
   "repository": {
     "type": "git",
     "url": "pertemuan4_npm"
   },
   "author": "daffa",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.19",
+    "validator": "^13.7.0"
+  }
 }
